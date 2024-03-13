@@ -3,8 +3,9 @@ OBJ_DIR = ./obj
 BIN_DIR = ./bin
 INCDIR = ./inc
 SRC_DIR = ./src
-OBJS = $(OBJ_DIR)/main.o \
-       $(OBJ_DIR)/libft.o
+
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 CFLAGS = -Wall -Wextra -Werror -I$(INCDIR)
 
@@ -21,4 +22,3 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 .PHONY: fclean
 fclean:
 	@rm -rf $(OBJ_DIR) $(BIN_DIR)
- 

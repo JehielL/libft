@@ -41,16 +41,3 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 	dst[i] = '\0';
 	return (dest_len + src_len);
 }
-
-int	main()
-{
-	char dest[20] = "Hello, ";
-	const char src[] = "world!";
-
-	size_t result_len = ft_strlcat(dest, src, 30);
-
-	printf("Cadena concatenada: %s\n", dest);
-	printf("Logitud de cadena resultante: %zu\n", result_len);
-	return (0);
-	
-}
