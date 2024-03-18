@@ -1,24 +1,22 @@
-TARGET = ./bin/libft
-OBJ_DIR = ./obj
-BIN_DIR = ./bin
-INCDIR = ./inc
-SRC_DIR = ./src
+Library = libft
+files = ft_strlen ft_memmove ft_memcpy ft_strlcpy ft_strlcat ft_isalpha ft_isdigit ft_isalnum ft_isascii ft_isprint ft_memset ft_bzero ft_toupper ft_tolower ft_strchr ft_strrchr ft_strncmp
+Compiler = gcc
+CmpFlags = -Wall -Wextra -Werror
+OUTN = $(Library).a
+OFILES = $(files:%=%.o)
+NAME = $(OUTN)
 
-SRCS = $(wildcard $(SRC_DIR)/*.c)
-OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
+$(NAME): $(OFILES)
+	ar rcs $(OUTN) $(OFILES)
 
-CFLAGS = -Wall -Wextra -Werror -I$(INCDIR)
+all: $(NAME)
 
-$(TARGET): $(OBJS)
-	mkdir -p $(BIN_DIR)
-	gcc $(CFLAGS) $(OBJS) -o $(TARGET)
+clean:
+	rm -f $(OFILES)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	mkdir -p $(OBJ_DIR)
-	gcc -c $(CFLAGS) $< -o $@
+fclean: clean
+	rm -f $(NAME)
 
--include $(wildcard $(OBJ_DIR)/*.d)
+re: fclean all
 
-.PHONY: fclean
-fclean:
-	@rm -rf $(OBJ_DIR) $(BIN_DIR)
+.PHONY: all clean fclean re

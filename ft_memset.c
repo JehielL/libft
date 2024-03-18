@@ -1,49 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlinarez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 14:57:38 by jlinarez          #+#    #+#             */
-/*   Updated: 2024/03/12 16:29:37 by jlinarez         ###   ########.fr       */
+/*   Created: 2024/03/12 12:40:05 by jlinarez          #+#    #+#             */
+/*   Updated: 2024/03/18 14:02:50 by jlinarez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t		i;
-	const char	*s;
-	char		*d;
+	unsigned char	*str;
 
-	d = (char *)dst;
-	s = (const char *)src;
-	i = 0;
-	if (d > s)
+	str = b;
+	while (len--)
 	{
-		while (len--)
-		{
-			d[len] = s[len];
-		}
+		*str++ = c;
 	}
-	while (i < len)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dst);
+	return (b);
 }
-
-/* int	main()
-{
-	char src[] = "Hello,World";
-	char dst[5];
-
-	ft_memmove(dst, src, 6);
-	printf("Cadena copiada: %s\n", dst);
-	return (0);
-}
-
-*/
