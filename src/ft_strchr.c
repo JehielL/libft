@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlinarez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 10:33:50 by jlinarez          #+#    #+#             */
-/*   Updated: 2024/03/18 10:35:10 by jlinarez         ###   ########.fr       */
+/*   Created: 2024/03/18 10:16:16 by jlinarez          #+#    #+#             */
+/*   Updated: 2024/03/18 11:55:02 by jlinarez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-int	main(void)
+char	*ft_sstrchr(const char *s, int c)
 {
-	printf("¡El make funciona correctamente!\n");
-	return (0);
+	while (*s != '\0')
+	{
+		if (*s == c)
+		{
+			return ((char *)s);
+		}
+		c++;
+	}
+	if (*s == '\0')
+	{
+		return ((char *)s);
+	}
+	return (NULL);
 }

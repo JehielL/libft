@@ -30,5 +30,7 @@ size_t	ft_strlcat(char *restrict dst,
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
+char    *ft_sstrchr(const char *s, int c);
+
 
 #endif
