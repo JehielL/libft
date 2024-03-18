@@ -1,5 +1,5 @@
 Library = libft
-files = ft_strlen ft_memmove ft_memcpy ft_strlcpy ft_strlcat ft_isalpha ft_isdigit ft_isalnum ft_isascii ft_isprint ft_memset ft_bzero ft_toupper ft_tolower ft_strchr ft_strrchr ft_strncmp
+files = ft_strlen ft_memmove ft_memcpy ft_strlcpy ft_strlcat ft_isalpha ft_isdigit ft_isalnum ft_isascii ft_isprint ft_memset ft_bzero ft_toupper ft_tolower ft_strchr ft_strrchr ft_strncmp ft_memchr
 Compiler = gcc
 CmpFlags = -Wall -Wextra -Werror
 OUTN = $(Library).a
