@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlinarez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 10:48:24 by jlinarez          #+#    #+#             */
-/*   Updated: 2024/03/18 11:05:09 by jlinarez         ###   ########.fr       */
+/*   Created: 2024/03/19 13:26:39 by jlinarez          #+#    #+#             */
+/*   Updated: 2024/03/19 13:48:48 by jlinarez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strdup(const char *s)
 {
-	size_t	i;
+	int		i;
+	char	*str;
 
-	i = 0;
-	while ((s1[i] || s2[i]) && (i < n))
+	i = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * (i + 1));
+	if (str == NULL)
 	{
-		if ((unsigned char)s1[i] < (unsigned char)s2[i])
-		{
-			return (-1);
-		}
-		if ((unsigned char)s1[i] > (unsigned char)s2[i])
-		{
-			return (1);
-		}
-		i++;
+		return (NULL);
 	}
-	if (i == n || (s1[i] == '\0' && s2[i] == '\0'))
+	while (i > 0)
 	{
-		return (0);
+		str[i - 1] = s[i - 1];
+		i--;
 	}
-	else if (s1[i] == '\0')
-	{
-		return (-1);
-	}
-	return (1);
+	str[ft_strlen(s)] = '\0';
+	return (str);
 }

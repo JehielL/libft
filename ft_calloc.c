@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlinarez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 10:48:24 by jlinarez          #+#    #+#             */
-/*   Updated: 2024/03/18 11:05:09 by jlinarez         ###   ########.fr       */
+/*   Created: 2024/03/19 12:21:06 by jlinarez          #+#    #+#             */
+/*   Updated: 2024/03/19 12:25:12 by jlinarez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
+	size_t 	i;
+	void	*p;
 
-	i = 0;
-	while ((s1[i] || s2[i]) && (i < n))
+	if (count == 0 || size == 0)
 	{
-		if ((unsigned char)s1[i] < (unsigned char)s2[i])
-		{
-			return (-1);
-		}
-		if ((unsigned char)s1[i] > (unsigned char)s2[i])
-		{
-			return (1);
-		}
-		i++;
+		count = 1;
+		size = 1;
 	}
-	if (i == n || (s1[i] == '\0' && s2[i] == '\0'))
+	i = count * size;
+	p = malloc(i);
+	if (p == NULL)
 	{
-		return (0);
+		return (NULL);
 	}
-	else if (s1[i] == '\0')
-	{
-		return (-1);
-	}
-	return (1);
+	else
+		ft_bzero(p, i);
+	return (p);
 }

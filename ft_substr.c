@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlinarez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 10:48:24 by jlinarez          #+#    #+#             */
-/*   Updated: 2024/03/18 11:05:09 by jlinarez         ###   ########.fr       */
+/*   Created: 2024/03/19 14:09:54 by jlinarez          #+#    #+#             */
+/*   Updated: 2024/03/19 14:17:11 by jlinarez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*substr;
+	size_t	s_len;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (ft_strdup(""));
+	if (len > s_len - start)
+		len = s_len - start;
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
 	i = 0;
-	while ((s1[i] || s2[i]) && (i < n))
+	while (i < len)
 	{
-		if ((unsigned char)s1[i] < (unsigned char)s2[i])
-		{
-			return (-1);
-		}
-		if ((unsigned char)s1[i] > (unsigned char)s2[i])
-		{
-			return (1);
-		}
+		substr[i] = s[start + i];
 		i++;
 	}
-	if (i == n || (s1[i] == '\0' && s2[i] == '\0'))
-	{
-		return (0);
-	}
-	else if (s1[i] == '\0')
-	{
-		return (-1);
-	}
-	return (1);
+	substr[i] = '\0';
+	return (substr);
 }
