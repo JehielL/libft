@@ -6,16 +6,15 @@
 /*   By: jlinarez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 12:21:06 by jlinarez          #+#    #+#             */
-/*   Updated: 2024/03/19 12:25:12 by jlinarez         ###   ########.fr       */
+/*   Updated: 2024/03/21 10:22:52 by jlinarez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	size_t 	i;
+	size_t	i;
 	void	*p;
 
 	if (count == 0 || size == 0)
