@@ -48,7 +48,7 @@ static int	numchar(char const *s2, char c, int i)
 	return (lenght);
 }
 
-static char	**freee(char const **dst, int j)
+static char	**backfree(char const **dst, int j)
 {
 	while (j > 0)
 	{
@@ -74,7 +74,7 @@ static char	**affect(char const *s, char **dst, char c, int l)
 			i++;
 		dst[j] = (char *)malloc(sizeof(char) * numchar(s, c, i) + 1);
 		if (dst[j] == NULL)
-			return (freee((char const **)dst, j));
+			return (backfree((char const **)dst, j));
 		while (s[i] != '\0' && s[i] != c)
 			dst[j][k++] = s[i++];
 		dst[j][k] = '\0';
